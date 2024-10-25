@@ -1,0 +1,76 @@
+package servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.*;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import com.google.gson.*;
+
+
+public class S1 extends HttpServlet{
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	@Override
+	public void init(ServletConfig conf) throws ServletException
+	{
+		super.init(conf);
+		int richieste = 0, oneTime = 0;
+		this.getServletContext().setAttribute("richieste", richieste);
+		this.getServletContext().setAttribute("oneTime", oneTime);
+		
+		
+		
+	}
+	
+	
+	public void   doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
+	
+		Gson g = new Gson();
+		
+		int oneTime = Integer.parseInt((String) this.getServletContext().getAttribute("oneTIme"));
+		
+		int richieste = Integer.parseInt((String) this.getServletContext().getAttribute("richieste"));
+		richieste++;
+		this.getServletContext().setAttribute("richieste", richieste);
+		
+		if(richieste > 3 && oneTime == 0) {
+			this.getServletContext().setAttribute("oneTime", 1);
+			response.sendRedirect("wait.jsp");
+		}
+		// Leggi la stringa JSON dal campo di input nascosto del modulo
+	    String jsonString = request.getParameter("testo");
+	    String testo = g.fromJson(jsonString, String.class);
+		Random random = new Random();
+		int salto = random.nextInt(10);
+		String newString = null;
+		
+		for(int i = 0; i < testo.length(); i++) {
+			if(i % salto != 0) {
+				newString += ""+testo.charAt(i);
+			}
+		}
+		request.setAttribute("newString", newString);
+		request.getRequestDispatcher("J2.jsp").forward(request, response);
+		
+	}
+	
+	
+	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
+		
+	}
+	
+
+}

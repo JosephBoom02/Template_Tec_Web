@@ -1,0 +1,16 @@
+INDEX VERSION 1.132+C:\Users\Utente\Desktop\Startkit-TecWeb\.metadata\.plugins\org.eclipse.jdt.core
+2599861992.index
+2227664356.index
+104221695.index
+3613208160.index
+868282345.index
+488054979.index
+2703166955.index
+1865797976.index
+3506342762.index
+2099824924.index
+3917882922.index
+940989521.index
+692246535.index
+895480610.index
+9071861.index

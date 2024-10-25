@@ -1,0 +1,9 @@
+INDEX VERSION 1.132
+D:\TecWeb\Startkit-TecWeb\WebSocket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3791663852.index
+\07_TecWeb_solved\src
+D:\TecWeb\Startkit-TecWeb\WebSocket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2959633198.index
+\07_TecWeb_solved\src
+D:\TecWeb\Startkit-TecWeb\WebSocket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3171639629.index
+\07_TecWeb_solved\src
+D:\TecWeb\Startkit-TecWeb\WebSocket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1639639972.index
+\07_TecWeb_solved\src

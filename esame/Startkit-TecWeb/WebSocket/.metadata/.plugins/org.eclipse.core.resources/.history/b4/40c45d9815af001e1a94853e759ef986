@@ -1,0 +1,134 @@
+package servlets;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServlet;
+import javax.websocket.*;
+import javax.websocket.server.*;
+
+import com.google.gson.Gson;
+import java.util.*;
+import java.time.*;
+
+@ServerEndpoint("/actions")
+public class ProvaWS {
+
+	private Session sessione;
+	private Gson g;
+	
+	private static File fileToWatch;
+    private static long lastModifiedTimestamp = 0;
+    private static long lastFileSize = 0;
+    private static String mod = null;
+    private static Set <Session> sessions = new HashSet<>();
+    protected static Map <Session, LocalTime> map = new HashMap<>();
+    
+
+    static {
+        String filePath = "C:\\Users\\Utente\\Desktop\\Startkit-TecWeb\\WebSocket\\08_TecWeb_solved\\web\\risultati.txt";  // Inserisci il percorso completo del file risultati.txt
+        fileToWatch = new File(filePath);
+        lastModifiedTimestamp = fileToWatch.lastModified();
+        lastFileSize = fileToWatch.length();
+
+        // Avvia il thread per controllare le modifiche al file
+        Thread fileWatcherThread = new Thread(() -> {
+            try {
+                while (true) {
+                    Thread.sleep(0100);  
+                    long currentTimestamp = fileToWatch.lastModified();
+                    long currentFileSize = fileToWatch.length();
+
+                    if (currentTimestamp > lastModifiedTimestamp || currentFileSize > lastFileSize) {
+                        lastModifiedTimestamp = currentTimestamp;
+                        mod = processFileChanges();
+                    }
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        fileWatcherThread.setDaemon(true);
+        fileWatcherThread.start();
+    }
+	@OnOpen
+	public void open(Session session)
+	{
+		this.sessione = session;
+		g = new Gson();
+		System.out.println("Connessione Aperta ");
+		sessions.add(session);
+		map.put(session, LocalTime.now());
+	}
+
+	@OnClose
+	public void close(Session session) {
+		System.out.println("Connessione Chiusa ");
+	}
+
+	@OnMessage
+	public void handleMessage(String message, Session session) throws IOException, EncodeException {
+
+		///
+
+		sendback(g.toJson(mod));
+	}
+
+	private void sendback(String message) throws IOException, EncodeException {
+		// TODO Auto-generated method stub
+		for(Session s : sessions) {
+		try {
+			System.out.println("Sto inviando: " + message);
+			s.getBasicRemote().sendText(message);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		}
+	}
+
+	@OnError
+	public void onError(Session session, Throwable throwable) {
+		System.out.println("Errore ");
+	}
+	
+	private static String processFileChanges() {
+		StringBuilder newContent = null;
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileToWatch))) {
+            // Posizionati alla fine del file alla ricerca degli aggiornamenti
+            reader.skip(lastFileSize);
+
+             newContent = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                newContent.append(line).append("\n");
+            }
+
+
+            // Aggiorna la dimensione del file
+            lastFileSize = fileToWatch.length();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return newContent.toString().trim();
+    }
+	
+	  public static Set<Session> getConnectedUsers() {
+	        return Collections.unmodifiableSet(sessions);
+	    }
+
+	    public static Map<Session, LocalTime> getUserSubscriptionTimes() {
+	        return Collections.unmodifiableMap(map);
+	    }
+
+	public void revoke(String sess) {
+		for(Session s : sessions) {
+			if(sess.equals(s.getId())){
+				sessions.remove(s);
+				map.remove(s);
+			}
+		}
+	}
+}

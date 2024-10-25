@@ -1,0 +1,51 @@
+-------------JAVA-Bean--------------------------------------
+public class MyApplicationBean {
+    private String data;
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+}
+
+-------------Servlet----------------------------------------
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletContext;
+
+@WebServlet("/myServlet")
+public class MyServlet extends HttpServlet {
+    @Override
+    public void init() throws ServletException {
+        // Create the bean and set it in application scope
+        MyApplicationBean myBean = new MyApplicationBean();
+        myBean.setData("Initial Data");
+        
+        // Store the bean in the ServletContext (application scope)
+        ServletContext context = getServletContext();
+        context.setAttribute("myApplicationBean", myBean);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Access the bean from application scope
+        ServletContext context = getServletContext();
+        MyApplicationBean myBean = (MyApplicationBean) context.getAttribute("myApplicationBean");
+
+        // Modify the bean
+        myBean.setData("Updated Data");
+
+        // Optionally, you can retrieve the updated data
+        String updatedData = myBean.getData();
+
+        // Send response
+        response.setContentType("text/plain");
+        response.getWriter().write("Updated Data: " + updatedData);
+    }
+}

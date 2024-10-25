@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Anagrammi</title>
+<script>
+
+function carattereSpeciale(event){
+	var key =  event.key;
+	if(key === "$"){
+		//console.log("chiave:"+key);
+		checkMinuscole();
+	}
+	//console.log("chiave:"+key);
+	
+}
+
+
+function checkMinuscole(){
+	var stringa = document.getElementById("stringa").value;
+	if(stringa !== null){
+		if(stringa.toLowerCase() === stringa){
+			document.getElementById("parola").textContent = stringa;
+			inviaRichiesta("S1", stringa, "risultati1");
+			inviaRichiesta("S2", stringa, "risultati2");
+		}else{
+			alert("Inserire una parola valida");
+			document.getElementById("stringa").value = "";
+		}
+	}
+}
+
+
+function inviaRichiesta(servlet, stringa, risultatiId){
+	 var xhr = new XMLHttpRequest();
+	    xhr.open('POST', servlet, true);
+	    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+	    xhr.onreadystatechange = function() {
+	        if (xhr.readyState == 4 && xhr.status == 200) {
+	            document.getElementById(risultatiId).innerHTML = xhr.responseText;
+	        }
+	    };
+
+	    xhr.send('stringa=' + encodeURIComponent(stringa));
+}
+
+
+
+
+
+</script>
+
+</head>
+
+
+<body>
+
+
+<h1>Anagrammi:</h1> <br>
+
+<div>
+<p>Inserire una parola di max 8 caratteri:</p> <br>
+<input type="text" id="stringa" name="stringa" maxlength=8 required onkeypress="carattereSpeciale(event)">
+</div>
+<br>
+<br>
+<br>
+
+<p>Parola inserita: <span id="parola"></span></p>
+<br>
+<br>
+<p> Anagrammi che iniziano per vocale: </p>
+<div id="risultati1"></div>
+<p> Anagrammi che iniziano per consonante: </p>
+<div id="risultati2"></div>
+
+
+
+
+
+
+
+
+</body>
+</html>

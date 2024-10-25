@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\Utente\Desktop\Esami_svolti-prof\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2816957487.index
+1371749174.index
+444983044.index
+1393643303.index
+2190633655.index
+3203474490.index
+3925638486.index

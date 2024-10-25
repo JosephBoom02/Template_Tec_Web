@@ -1,0 +1,9 @@
+INDEX VERSION 1.132
+C:\Users\Utente\Desktop\Startkit-TecWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1754938399.index
+\Esercizio2\src
+C:\Users\Utente\Desktop\Startkit-TecWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1937794479.index
+\Esercizio2\src
+C:\Users\Utente\Desktop\Startkit-TecWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\69121887.index
+\Esercizio1\src
+C:\Users\Utente\Desktop\Startkit-TecWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\792348367.index
+\Esercizio1\src

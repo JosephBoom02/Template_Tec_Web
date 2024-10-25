@@ -1,0 +1,7 @@
+-------------Retrieve username from session in jsp------------------
+<%@ page import="java.util.Map.Entry" %>
+
+for(Entry<String, Optional<HttpSession>> entry : dati.getSessions().entrySet()){
+    if(entry.getValue().equals(Optional.of(session)))
+        username = entry.getKey();
+}

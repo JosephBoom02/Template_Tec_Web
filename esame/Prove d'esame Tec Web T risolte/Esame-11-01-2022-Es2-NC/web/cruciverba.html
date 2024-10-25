@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: auto;
+        }
+
+        td {
+            border: 1px solid black;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+    
+</head>
+<body>
+
+ <table id="matrix"> </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Numero di righe e colonne
+            var rows = 10;
+            var cols = 10;
+
+            // Riferimento alla tabella
+            var table = document.getElementById('matrix');
+            // Funzione per ottenere la matrice dal server
+            function getMatrixFromServer() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'S2', true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var matrix = JSON.parse(xhr.responseText);
+                        updateMatrix(matrix);
+                    }
+                };
+                xhr.send();
+            }
+
+            function handleInput(event) {
+            	   var inputChar = event.data;
+            	    
+            	    // Verifica se il carattere inserito è un singolo carattere maiuscolo
+            	    if (/^[A-Z]$/.test(inputChar)) {
+            	        this.innerText = inputChar;
+            	        this.contentEditable = false;
+            	        this.removeEventListener('input', handleInput);
+            	        updateServer(this.id, inputChar);
+            	    } else {
+            	        // Rimuovi eventuali caratteri aggiunti in eccesso
+            	        this.innerText = "";
+            	        event.preventDefault();
+            	    }
+            	}
+            
+            
+            // Creazione della matrice
+             function updateMatrix(matrix) {
+            	table.innerHTML ="";
+            	for (var i = 0; i < rows; i++) {
+                var row = table.insertRow(i);
+                for (var j = 0; j < cols; j++) {
+                    var cell = row.insertCell(j);
+                    cell.contentEditable = true;
+                    cell.id = i + "-" + j;
+                    cell.addEventListener('input', handleInput);    
+                    cell.innerText = matrix[cell.id] || "";
+                }
+            } 
+        }
+        
+        
+        
+        function updateServer(cellId, content) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'S2', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Logica aggiuntiva se necessario
+                	console.log('Status:', xhr.status);
+                    console.log('Response:', xhr.responseText);
+                  //  alert("Response: " + xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify({
+                cellId: cellId,
+                content: content
+            }));
+        }
+        
+        getMatrixFromServer();
+        
+        });
+        
+        
+        function pollServer() {
+            setInterval(function() {
+                // Effettua una richiesta GET al server per ottenere lo stato aggiornato
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/matrix', true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var matrix = JSON.parse(xhr.responseText);
+                        // Aggiorna la tua matrice collaborativa o fai altre azioni
+                    }
+                };
+                xhr.send();
+            }, 1000);  // Intervallo di polling in millisecondi (ad esempio, ogni secondo)
+        }
+
+        // Avvia il polling quando la pagina è completamente caricata
+        document.addEventListener('DOMContentLoaded', function() {
+            pollServer();
+        });
+
+    </script>
+   
+
+
+
+
+
+</body>
+</html>

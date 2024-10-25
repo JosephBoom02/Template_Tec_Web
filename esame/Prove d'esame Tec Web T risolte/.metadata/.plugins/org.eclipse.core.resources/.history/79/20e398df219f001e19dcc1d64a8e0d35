@@ -1,0 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+   <%@ page import="com.google.gson.*" %>
+   
+
+
+<%
+    Gson gson = new Gson();
+    String testo = null;
+
+    if ("POST".equalsIgnoreCase(request.getMethod())) {
+        String buttonSubmit = request.getParameter("buttonSubmit");
+
+        if (buttonSubmit != null) {
+            testo = request.getParameter("testo");
+            String testoJson = gson.toJson(testo);
+
+            request.setAttribute("testoJson", testoJson);
+            request.getRequestDispatcher("/S1").forward(request, response);
+        }
+    }
+%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script>
+
+function isAlphanumeric(character) {
+    // Verifica se il carattere è alfanumerico usando una regular expression
+    var alphanumericRegex = /^[a-zA-Z0-9]+$/;
+    return alphanumericRegex.test(character);
+}
+
+function buttonOn(e){
+	if(isAlphanumeric(e.key) === true){
+	var testo = document.getElementById("testo").value;
+	
+	var dim = testo.length;
+	if(dim >= 100){
+		document.getElementById("submit").disabled = false;
+	}
+	}else{ alert("carattere NON alfa-numerico");
+	document.getElementById("testo").value = "";
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+
+<form action="#" method="post">
+<p>Inserire un testo di caratteri alfa-numerici</p> <br>
+<input type="text" id="testo" name="testo" minlength="100" maxlength="1000" required onkeyup="buttonOn(event)">
+<input type="submit" id="submit" name = "buttonSubmit" value="invio Json" disabled>
+</form>
+
+
+
+</body>
+</html>

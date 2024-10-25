@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import = "java.util.*" %>
+    <%@ page import = "java.time.*" %>
+    <%@ page import="servlets.ProvaWS" %>
+    <%@ page import="javax.websocket.*" %>
+    <%@ page import=" java.time.temporal.ChronoUnit" %>
+    <%@ page import=" java.util.stream.Collectors" %>
+   
+    
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+    <% Set<Session> connectedUsers = ProvaWS.getConnectedUsers(); %>
+    <% Map<Session, LocalTime> userSubscriptionTimes = ProvaWS.getUserSubscriptionTimes(); %>
+
+<p> Ecco l'elenco delle sessioni attive da più di un'ora: <p> <br/><br/><br/>
+
+<%for(int i = 0; i < connectedUsers.size(); i++){ 
+	
+	LocalTime now = LocalTime.now();
+	
+	
+	stoppable = userSubscriptionTimes.entrySet().stream().filter(e -> (e.getValue().until(now, ChronoUnit.MINUTES) >= 60)).map(e -> e.getKey()).collect(Collectors.toSet());
+	
+	
+	
+	
+}%>
+
+</body>
+</html>

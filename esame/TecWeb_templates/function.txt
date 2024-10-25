@@ -1,0 +1,91 @@
+//1 verifica he una stringa è alfanumerica
+//2 abilitazione bottone dopo la scrittura di n >=x cartteri alfanumerici, altrimenti se non sono alfanumerici ALERT
+//3 ricerca carattere speciale
+//4 invio richiesta AJAX
+//5 concedere/togliere permessi di scrittura tramite un bottone verso una textarea
+//6 estrazione numeri casuali in React
+
+
+//1
+function isAlphanumeric(character) {
+    // Verifica se il carattere è alfanumerico usando una regular expression
+    var alphanumericRegex = /^[a-zA-Z0-9]+$/;
+    return alphanumericRegex.test(character);
+}
+
+//2
+function buttonOn(e) {
+    if (isAlphanumeric(e.key) === true) {
+        var testo = document.getElementById("testo").value;
+
+        var dim = testo.length;
+        if (dim >= 10) {
+            document.getElementById("submit").disabled = false;
+        }
+    } else {
+        alert("carattere NON alfa-numerico");
+        document.getElementById("testo").value = "";
+    }
+}
+
+
+//3
+function carattereSpeciale(event) {
+    var key = event.key;
+    if (key === "$"){
+
+	//fai qualosa
+	};
+}
+
+
+//4
+function inviaRichiesta("nomeServlet", "datoInput", "IDdatoOutput") {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', "nomeServlet", true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById("IDdatoOutput").innerHTML = xhr.responseText;
+        }
+    };
+
+    xhr.send('stringa=' + encodeURIComponent("datoInput"));
+}
+
+/*nella servlet, per andare a scrivere su datoOutput utilizzo la classe PrintWriter:
+PrintWriter out = response.getWriter();
+        for(String s : " ") {
+            out.println(s);
+        }
+        out.close();
+*/
+
+
+//5
+function noPermission() {
+    // Disabilita la textarea
+    document.getElementById("IDtextarea").disabled = true;          //se metto false abilito la a scrivere
+
+    // Puoi anche nascondere il pulsante se necessario
+    document.getElementById("noPermissionButton").style.display = "none";            //volendo così si nasconde il pulsante 
+}
+
+/* nella parte html associamo l'evento onclick */
+/*<button id="noPermissionButton" onclick="noPermission()">tolgo permesso scrittura</button> */
+
+
+//6
+const [estratti, setEstratti] = useState([]);
+const estraiNumeri = () => {
+    // Genera 5 numeri casuali ammissibili
+    const numeriEstratti = [];
+    while (numeriEstratti.length < 5) {
+        const numeroCasuale = Math.floor(Math.random() * 10) + 1;
+        if (!numeriEstratti.includes(numeroCasuale)) {
+            numeriEstratti.push(numeroCasuale);
+        }
+    }
+    setEstratti(numeriEstratti);
+};

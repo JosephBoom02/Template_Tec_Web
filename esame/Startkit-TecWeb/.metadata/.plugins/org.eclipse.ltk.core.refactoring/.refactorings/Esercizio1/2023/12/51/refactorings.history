@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy source folder &apos;gson-2.2.2.jar&apos; to &apos;lib&apos;&#x0D;&#x0A;- Original project: &apos;Esercizio1&apos;&#x0D;&#x0A;- Destination element: &apos;lib&apos;&#x0D;&#x0A;- Original element: &apos;Esercizio1/lib/gson-2.2.2.jar&apos;" description="Copy source folder" element1="/lib\/gson-2.2.2.jar" flags="6" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyRoots" roots="1" stamp="1703088829439" target="/Esercizio1/web/WEB-INF/lib" version="1.0"/>
+</session>

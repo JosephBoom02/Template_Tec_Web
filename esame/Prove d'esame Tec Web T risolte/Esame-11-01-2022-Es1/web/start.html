@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script>
+
+function isAlpha(character) {
+    // Verifica se il carattere � alfanumerico usando una regular expression
+    var alphaRegex = /^[a-zA-Z ]+$/;
+    return alphaRegex.test(character);
+}
+
+function handleKeyPress(e) {
+    var key = e.Key;
+    if (key === '£') {
+    	
+    	var text = document.getElementById("testo").value;
+    	
+    	var esito = isAlpha(text);
+    	if(esito === true){
+    		document.getElementById("form").submit;
+    		
+    		
+    		
+    	}else alert("Errore carattere NON alfabetico");
+
+    }
+}
+
+</script>
+
+
+</head>
+<body>
+
+
+<form id="form" action="J1" method="post">
+	<p>Inserire un testo di caratteri alfabetici</p> <br>
+	<input type="text" id="testo" name="testo"  maxlength="1000" required onkeydown="handleKeyPress(event)">
+</form>
+
+
+</body>
+</html>

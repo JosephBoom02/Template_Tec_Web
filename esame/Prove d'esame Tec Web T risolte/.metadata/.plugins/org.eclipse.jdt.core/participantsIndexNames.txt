@@ -1,0 +1,53 @@
+INDEX VERSION 1.132
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2985350952.index
+\TW_Esame_StartingKit\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2181170635.index
+\TW_Esame_StartingKit\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1473108241.index
+\TW_Esame_StartingKit\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3477325947.index
+\09-06-2022-Es2\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1532155272.index
+\TW_Esame_StartingKit\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2473669888.index
+\09-06-2022-Es2\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2321202435.index
+\09-06-2022-Es2\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1046952876.index
+\09-07-2022-Es1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\367809501.index
+\09-07-2022-Es1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3452380532.index
+\07_SimulazioneEsame1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3885226991.index
+\07_SimulazioneEsame1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2951879152.index
+\09-07-2022-Es1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2480000487.index
+\09-07-2022-Es1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3768968365.index
+\TW_Esame_StartingKit\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3887868155.index
+\07_SimulazioneEsame1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\80537615.index
+\TW_Esame_StartingKit\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2713565234.index
+\09-06-2022-Es1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2409126386.index
+\07-09-2022-Es1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2673082059.index
+\07-09-2022-Es1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2275732261.index
+\TW_Esame_StartingKit\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2296623787.index
+\09-06-2022-Es1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3592645314.index
+\09-06-2022-Es2\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4182531749.index
+\TW_Esame_StartingKit\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\139269431.index
+\07-09-2022-Es1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1692322990.index
+\07_SimulazioneEsame1\src
+C:\Users\Utente\Desktop\Prove d'esame Tec Web T risolte\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2944537312.index
+\07-09-2022-Es1\src
