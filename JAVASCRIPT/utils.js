@@ -50,3 +50,19 @@ setTimeout(() => { alert("Gioco finito"); }, 1000 )
 //Delete an element from an array
 array.splice(index, 1);
 
+//Read a file
+//this code retreive a file from a file input html element
+var fileInput = myGetElementById("fileInput");
+if (fileInput.files.length === 0) {
+	alert("Seleziona un file JSON.");
+	return;
+}
+else{
+	const file = fileInput.files[0];
+	const reader = new FileReader();
+	reader.onload = function(event) {
+		text = JSON.parse(event.target.result);
+		console.log("Testo:\n" + text);
+	};
+}
+

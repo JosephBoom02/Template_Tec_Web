@@ -1,7 +1,3 @@
-
-
-
-
 function parsificaJSON( jsonText ) {
 
 		var item = JSON.parse(jsonText);

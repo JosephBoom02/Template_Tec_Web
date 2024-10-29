@@ -1,0 +1,7 @@
+//caricare un file
+<body>
+    <h1>Ricerca Indirizzo "Ugo Bassi"</h1>
+    <input type="file" id="fileInput" />
+    <button onclick="uploadFile()">Carica File</button>
+    <div id="result"></div>
+</body>
